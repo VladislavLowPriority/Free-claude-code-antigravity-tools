@@ -1,4 +1,4 @@
-<img width="506" height="265" alt="image" src="https://github.com/user-attachments/assets/a6ddf52d-f69d-4fb1-9a9c-667055f7fef5" /># Free Claude Code — Antigravity Manager setup
+# Free Claude Code — Antigravity Manager setup
 
 Форк [Alishahryar1/free-claude-code](https://github.com/Alishahryar1/free-claude-code) с патчами для работы через **Antigravity-Manager** и скриптом переключения моделей.
 
@@ -30,7 +30,6 @@ Antigravity-Manager принимает **OpenAI Chat Completions**, а не Anth
 .\model-switch.ps1
 ```
 <img width="506" height="265" alt="image" src="https://github.com/user-attachments/assets/1be2e09b-8da4-4621-a06a-6766914917be" />
-
 Список моделей редактируется в начале файла (массив `$Models`).
 
 ---
