@@ -1,16 +1,31 @@
-"""LM Studio provider implementation."""
+"""LM Studio provider implementation (OpenAI-compatible chat completions)."""
 
-from providers.anthropic_messages import AnthropicMessagesTransport
+from __future__ import annotations
+
+from typing import Any
+
 from providers.base import ProviderConfig
 from providers.defaults import LMSTUDIO_DEFAULT_BASE
+from providers.openai_compat import OpenAIChatTransport
+
+from .request import build_request_body
 
 
-class LMStudioProvider(AnthropicMessagesTransport):
-    """LM Studio provider using native Anthropic Messages endpoint."""
+class LMStudioProvider(OpenAIChatTransport):
+    """LM Studio provider using OpenAI-compatible chat completions endpoint."""
 
     def __init__(self, config: ProviderConfig):
         super().__init__(
             config,
             provider_name="LMSTUDIO",
-            default_base_url=LMSTUDIO_DEFAULT_BASE,
+            base_url=config.base_url or LMSTUDIO_DEFAULT_BASE,
+            api_key=config.api_key,
+        )
+
+    def _build_request_body(
+        self, request: Any, thinking_enabled: bool | None = None
+    ) -> dict:
+        return build_request_body(
+            request,
+            thinking_enabled=self._is_thinking_enabled(request, thinking_enabled),
         )
