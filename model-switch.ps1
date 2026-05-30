@@ -163,6 +163,6 @@ if ($chosen.Mode -ne $prevMode) {
 }
 else {
     Write-Host ""
-    Write-Host "Режим уже '$($chosen.Mode)' — Claude Code подхватит модель сразу, перезапуск не нужен." -ForegroundColor Green
+    Write-Host "Готово. Перезагрузи окно VS Code: Ctrl+Shift+P → 'Developer: Reload Window'" -ForegroundColor Yellow
 }
 Write-Host ""
